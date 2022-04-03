@@ -45,7 +45,7 @@ class Preprocessing():
     
     return X
 
-    def latlongtoxyz(X):
+    def latlongtoxyz(self, X):
         
         """
         Creates new features by transforming latitude and longitude to x,y,z coordinates
@@ -69,7 +69,7 @@ class Preprocessing():
         
         return X
                            
-    def onehotencoding(X):
+    def onehotencoding(self, X):
         
         """
         performs dummy encoding for the ocean proximity feature
@@ -80,7 +80,7 @@ class Preprocessing():
         return X
                            
     
-    def predict(X):
+    def predict(self, X):
         
         """
         provides predictions y for a given X
