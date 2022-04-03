@@ -4,6 +4,10 @@ class Preprocessing():
     
     def __init__(self):
         
+        #Load training parameters
+        
+        self.train_params = pd.read_csv("train_params.csv")
+        
         #Load various trained models
         self.latmodel = load("models/gmmlat.joblib")
         self.longmodel = load("models/gmmlong.joblib")
@@ -15,14 +19,26 @@ class Preprocessing():
         Transforms the given feature matrix with a series of operations performed on the training set. 
         """
         
+        X_na = self.imputenans(X)
         X_ohe = self.onehotencoding(X)
         X_gmm = self.gaussian_mixture_prep(X,self.latmodel, self.longmodel)
         X_feat = self.feature_combination(X)
         X_std = self.scaler.transform(X_feat)
         return X_std
         
+        
+    def imputenans(self, X):
+        
+        """
+        imputes missing values in total_bedrooms with mean of the training data
+        """
+        
+        X['total_bedrooms'].fillna(self.train_params.loc['mean','total_bedrooms'], inplace=True)
+        
+        
     
     def gaussian_mixture_prep(X, gmmlat, gmmlong):
+    def gaussian_mixture_prep(self, X, gmmlat, gmmlong):
 
         """
         Creates new binary features by assigning cluster labels to latitude and longitude feature values calculated by 
@@ -58,6 +74,7 @@ class Preprocessing():
         return X
         
     def feature_combination(X):
+    def feature_combination(self, X):
         
         """
         creates new features using total_rooms, total_bedrooms, households and populatiom
