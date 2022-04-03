@@ -1,11 +1,10 @@
 from joblib import load
+import pandas as pd
+import numpy as np
 
-class Preprocessing():
-    
-    
-        
-   """
-   Script for Preprocessing and predicting on test(new) data
+
+class Preprocessing:
+    """     Script for Preprocessing and predicting on test(new) data
 
     1. Mean Imputation
     2. Dummy Encoding
@@ -13,18 +12,13 @@ class Preprocessing():
     4. Feature Combination - total_rooms, total_bedrooms, households and population
     5. latitude,longitude to x,y,z
     6. Scale using Training data parameters
-    
-   """
-    
-    
-    
+
+    """
     def __init__(self):
-        
-        #Load training parameters
-        
+
         self.train_params = pd.read_csv("train_params.csv")
-        
-        #Load various trained models
+        self.train_params.set_index("Unnamed: 0", inplace=True)
+        # Load various trained models
         self.latmodel = load("models/gmmlat.joblib")
         self.longmodel = load("models/gmmlong.joblib")
         self.scaler = load("models/standardscaler.joblib")
@@ -38,10 +32,10 @@ class Preprocessing():
         X_ohe = self.onehotencoding(X_na)
         X_gmm = self.gaussian_mixture_prep(X_ohe,self.latmodel, self.longmodel)
         X_feat = self.feature_combination(X_gmm)
-        X_std = self.scaler.transform(X_feat)
+        X_xyz = self.latlongtoxyz(X_feat)
+        X_std = self.scaler.transform(X_xyz)
         return X_std
-        
-        
+
     def imputenans(self, X):
         
         """
