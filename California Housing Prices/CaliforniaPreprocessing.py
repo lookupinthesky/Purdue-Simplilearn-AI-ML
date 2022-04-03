@@ -2,6 +2,22 @@ from joblib import load
 
 class Preprocessing():
     
+    
+        
+   """
+   Script for Preprocessing and predicting on test(new) data
+
+    1. Mean Imputation
+    2. Dummy Encoding
+    3. GMM clusters of latitude and longitude
+    4. Feature Combination - total_rooms, total_bedrooms, households and population
+    5. latitude,longitude to x,y,z
+    6. Scale using Training data parameters
+    
+   """
+    
+    
+    
     def __init__(self):
         
         #Load training parameters
