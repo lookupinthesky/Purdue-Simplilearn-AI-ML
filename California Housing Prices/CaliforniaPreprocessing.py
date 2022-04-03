@@ -34,6 +34,8 @@ class Preprocessing():
         
         X['total_bedrooms'].fillna(self.train_params.loc['mean','total_bedrooms'], inplace=True)
         
+        return X
+        
         
     
     def gaussian_mixture_prep(self, X, gmmlat, gmmlong):
@@ -57,7 +59,7 @@ class Preprocessing():
         X= pd.get_dummies(X, columns=['latlongcluster'])
         X.drop(columns=['latlongcluster_00'], inplace=True)
     
-    return X
+        return X
 
     def latlongtoxyz(self, X):
         
@@ -69,6 +71,7 @@ class Preprocessing():
         X['ycoordinate'] = np.cos(X['latitude'])*np.sin(X['longitude'])
         X['zcoordinate'] = np.sin(X['latitude'])
         X = X.drop(columns = ['latitude','longitude'])
+        
         return X
         
     def feature_combination(self, X):
