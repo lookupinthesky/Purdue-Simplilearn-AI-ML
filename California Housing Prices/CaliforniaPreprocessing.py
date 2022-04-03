@@ -18,11 +18,7 @@ class Preprocessing():
         """
         Transforms the given feature matrix with a series of operations performed on the training set. 
         """
-        
         X_na = self.imputenans(X)
-        X_ohe = self.onehotencoding(X)
-        X_gmm = self.gaussian_mixture_prep(X,self.latmodel, self.longmodel)
-        X_feat = self.feature_combination(X)
         X_ohe = self.onehotencoding(X_na)
         X_gmm = self.gaussian_mixture_prep(X_ohe,self.latmodel, self.longmodel)
         X_feat = self.feature_combination(X_gmm)
@@ -40,7 +36,6 @@ class Preprocessing():
         
         
     
-    def gaussian_mixture_prep(X, gmmlat, gmmlong):
     def gaussian_mixture_prep(self, X, gmmlat, gmmlong):
 
         """
@@ -76,7 +71,6 @@ class Preprocessing():
         X = X.drop(columns = ['latitude','longitude'])
         return X
         
-    def feature_combination(X):
     def feature_combination(self, X):
         
         """
