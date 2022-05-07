@@ -1,0 +1,12 @@
+Flask==2.0.3
+click
+colorama
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+gunicorn
+nltk==3.7
+requests==2.27.1
+tensorflow==2.6.2
+

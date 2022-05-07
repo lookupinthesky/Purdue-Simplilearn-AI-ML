@@ -18,11 +18,11 @@ def render_html():
 
 @app.route('/', methods=['POST'])
 def receive_tweet():
-    BASE = "http://localhost:8080/"
+    BASE = "http://127.0.0.1:5000/"
     tweet = request.form['tweet']
     params = dict()
     params['text'] = tweet
-    response = requests.get(BASE + '/predict/', params=params)
+    response = requests.get(BASE + '/predict/', params=params, verify=False)
 
     print(f"inside receive tweet response is {response.text}")
 
@@ -37,7 +37,7 @@ def predict():
     return jsonify(response)
 
 if __name__ == "__main__":
-    app.run(host = 'localhost', port = 8080, debug=True)
+    app.run(debug=True)
 
 
 
