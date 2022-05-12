@@ -23,25 +23,24 @@ def receive_tweet():
 
     BASE = 'https://twitterdocksentiment.herokuapp.com/' #for heroku
     tweet = request.form['tweet']
-    params = dict()
-    params['text'] = tweet
-    response = requests.get(BASE + '/predict/', params=params, verify=False)
+    # params = dict()
+    # params['text'] = tweet
+    # response = requests.get(BASE + '/predict/', params=params, verify=False)
+    response = predict1(tweet)
+    print(f"inside receive tweet response is {response.json}")
 
-    print(f"inside receive tweet response is {response.text}")
+    return render_template('twitter.html', result=response.json)
 
-    return render_template('twitter.html', result=response.text)
-
-@app.route('/predict/', methods = ['GET'])
-def predict():
-    tweet = request.args['text']
-    tfw = TensorflowTweet('models/model41.h5')
-    response = tfw.predict(tweet)
-    print(f"inside predict, response is {response}")
-    return jsonify(response)
+# @app.route('/predict/', methods = ['GET'])
+# def predict():
+#     tweet = request.args['text']
+#     tfw = TensorflowTweet('models/model41.h5')
+#     response = tfw.predict(tweet)
+#     print(f"inside predict, response is {response}")
+#     return response
 
 
 def predict1(tweet):
-    tweet = request.args['text']
     tfw = TensorflowTweet('models/model41.h5')
     response = tfw.predict(tweet)
     print(f"inside predict, response is {response}")

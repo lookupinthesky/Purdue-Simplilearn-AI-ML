@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 #     python -m nltk.downloader wordnet && \
 #     python -m nltk.downloader omw-1.4
 
-EXPOSE 5000             
+#EXPOSE 5000             
 #only flask
 
 
@@ -28,9 +28,13 @@ ENV FLASK_APP=app.py
 
 COPY . /app
 
-#CMD ["python", "app.py"]
+#for local
+#CMD ["python", "app.py"] 
 
-ENTRYPOINT [ "flask"]
+#ENTRYPOINT [ "flask"]
 
-CMD ["run", "--host", "0.0.0.0"]
-#CMD ["gunicorn", "app:app", "--timeout 40"] #for heroku
+#for docker
+#CMD ["run", "--host", "0.0.0.0"]
+
+#for heroku
+CMD ["gunicorn", "app:app", "--timeout 40"] 

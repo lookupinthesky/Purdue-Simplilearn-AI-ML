@@ -4,8 +4,8 @@ colorama
 itsdangerous
 Jinja2
 MarkupSafe
-Werkzeug
 gunicorn
+Werkzeug
 nltk==3.7
 requests==2.27.1
 
