@@ -18,8 +18,10 @@ def render_html():
 
 @app.route('/', methods=['POST'])
 def receive_tweet():
-    BASE = "http://0.0.0.0:5000/"
-    #BASE = 'https://twitterdocksentiment.herokuapp.com/' #for heroku
+    #for local
+    #BASE = "http://0.0.0.0:5000/" 
+
+    BASE = 'https://twitterdocksentiment.herokuapp.com/' #for heroku
     tweet = request.form['tweet']
     params = dict()
     params['text'] = tweet
@@ -37,10 +39,21 @@ def predict():
     print(f"inside predict, response is {response}")
     return jsonify(response)
 
+
+def predict1(tweet):
+    tweet = request.args['text']
+    tfw = TensorflowTweet('models/model41.h5')
+    response = tfw.predict(tweet)
+    print(f"inside predict, response is {response}")
+    return jsonify(response)
+
+
 if __name__ == "__main__":
-    #port = int(os.environ.get("PORT", 5000)) #for heroku
-  #  app.run(debug=True, port=port) # for heroku
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000)) #for heroku
+    app.run(debug=True, port=port) # for heroku
+
+  #for local
+  #  app.run(debug=True)
 
 
 
