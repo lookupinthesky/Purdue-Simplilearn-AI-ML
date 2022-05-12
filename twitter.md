@@ -35,7 +35,7 @@ View the code on [GitHub](https://github.com/lookupinthesky/Purdue-Simplilearn-A
 
 Flask app packaged in Docker Container deployed on Heroku
 
-[See live Demo of Proof of Concept](https://www.twitterdocksentiment.herokuapp.com)
+[See live Demo of Proof of Concept](https://twitterdocksentiment.herokuapp.com/)
 
 [See code on Github](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/tree/deployment-heroku/Twitter%20Sentiment%20Analysis)
  
