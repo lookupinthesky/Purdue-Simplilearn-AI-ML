@@ -18,7 +18,8 @@ def render_html():
 
 @app.route('/', methods=['POST'])
 def receive_tweet():
-    BASE = "http://127.0.0.1:5000/"
+    BASE = "http://0.0.0.0:5000/"
+    #BASE = 'https://twitterdocksentiment.herokuapp.com/' #for heroku
     tweet = request.form['tweet']
     params = dict()
     params['text'] = tweet
@@ -37,6 +38,8 @@ def predict():
     return jsonify(response)
 
 if __name__ == "__main__":
+    #port = int(os.environ.get("PORT", 5000)) #for heroku
+  #  app.run(debug=True, port=port) # for heroku
     app.run(debug=True)
 
 

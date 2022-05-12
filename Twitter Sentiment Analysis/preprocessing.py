@@ -1,6 +1,7 @@
 import re
 import nltk
-from nltk.corpus import stopwords
+nltk.data.path.append('/nltk_data/')
+# from nltk.corpus import stopwords
 from nltk import pos_tag
 from nltk.corpus import wordnet
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -18,10 +19,17 @@ class TweetCleaner():
 
     def __init__(self) -> None:
         
+        self.stopwords = self._load_stopwords()
         self.tweetTokenizer = TweetTokenizer(strip_handles=True, reduce_len=True)
         self.lem = WordNetLemmatizer()
         self.valid_words = self._load_words()
         self.non_english_tokens = self._load_non_english_tokens()
+
+    def _load_stopwords(self):
+
+        with open('stop.txt', 'r') as stop:
+            words = stop.read().strip().split('\n')
+        return words
 
 
     def _cleanTweetsRegex(self, x):
@@ -79,7 +87,7 @@ class TweetCleaner():
             return word
 
     def _normalize_text(self, x):
-        stop = set(stopwords.words('english'))
+        stop = self.stopwords
         x = self._tokenizeTweets(x)
         x = contractions.expand_contractions(x)
         return ' '.join([self._lemmatize_token(word) for word in x.split() if word not in stop])
