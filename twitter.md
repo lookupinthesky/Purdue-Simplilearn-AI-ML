@@ -23,7 +23,7 @@ Tweet: the text in the tweet
 
 ### 1. Preprocessing and EDA
 
-View the code on [GitHub](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/tree/main/Twitter%20Sentiment%20Analysis)
+View the code on [GitHub](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/blob/main/Twitter%20Sentiment%20Analysis/twitter-hate-speech-preprocessing-and-eda.ipynb)
 
 ### 2. Model Building using CNN - LSTM architectures
 
@@ -35,7 +35,7 @@ View the code on [GitHub](https://github.com/lookupinthesky/Purdue-Simplilearn-A
 
 Flask app packaged in Docker Container deployed on Heroku
 
-[See live Demo of Proof of Concept](twitterdocksentiment.herokuapp.com)
+[See live Demo of Proof of Concept](https://www.twitterdocksentiment.herokuapp.com)
 
 [See code on Github](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/tree/deployment-heroku/Twitter%20Sentiment%20Analysis)
  
