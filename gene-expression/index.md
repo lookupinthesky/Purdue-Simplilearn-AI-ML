@@ -53,3 +53,5 @@ Week 4 - [Model Building Part 1](https://github.com/lookupinthesky/Purdue-Simpli
 
 
 [View the entire project on Github](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/tree/main/Cancer%20Gene%20Expression%20%20Microarray%20Data%20Analysis)
+
+[See Project Report](https://lookupinthesky.github.io/Purdue-Simplilearn-AI-ML/gene-expression/Report.pdf)
