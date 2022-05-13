@@ -18,7 +18,7 @@ The input dataset contains 802 samples for the corresponding 802 people who have
 
 ### Week 2
 
-1. Each sample has expression values for around 20K genes. However, it may not be necessary to include all 20K genes’ expression values to analyze each cancer type. Therefore, identify a smaller set of attributes which will then be used to fit multiclass lassification models using dimensionality reduction techniques.
+1. Each sample has expression values for around 20K genes. However, it may not be necessary to include all 20K genes’ expression values to analyze each cancer type. Therefore, identify a smaller set of attributes which will then be used to fit multiclass classification models using dimensionality reduction techniques.
 
 2. Filter the actual dataset for the columns (or genes) suggested by this approach and save it as a new DataFrame to represent the dimensionality reduction data.
 
@@ -37,11 +37,15 @@ Identify groups of genes that behave similarly across samples and identify the d
 
 ### Week 4
 
-1. Build a robust classification model for identifying each type of cancer. Try variants of SVM, Random Forest and Neural Networks and select the best model on AUC score.
+1. Build a robust classification model for identifying each type of cancer. Try variants of SVM, Random Forest and Neural Networks on original, selected and extracted features and evaluated on AUC score.
 
 2. Write an observation based on your analysis of the best models considered in the previous step. 
 
 ## Solution
+
+#### [See Project Thesis](https://lookupinthesky.github.io/Purdue-Simplilearn-AI-ML/gene-expression/Report.pdf)
+
+#### Notebooks
 
 Week 1 - [EDA](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/blob/main/Cancer%20Gene%20Expression%20%20Microarray%20Data%20Analysis/Week%201%20-%20EDA.ipynb) , [Feature Selection](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/blob/main/Cancer%20Gene%20Expression%20%20Microarray%20Data%20Analysis/Week%201%20-%20Feature%20Selection.ipynb)
 
@@ -54,4 +58,3 @@ Week 4 - [Model Building Part 1](https://github.com/lookupinthesky/Purdue-Simpli
 
 [View the entire project on Github](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/tree/main/Cancer%20Gene%20Expression%20%20Microarray%20Data%20Analysis)
 
-#### [See Project Thesis](https://lookupinthesky.github.io/Purdue-Simplilearn-AI-ML/gene-expression/Report.pdf)
