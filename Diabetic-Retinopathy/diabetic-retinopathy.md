@@ -26,6 +26,6 @@ TensorFlow Serving
 
 [See the code - Jupyter Notebook](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/blob/main/Diabetic%20Retinopathy%20Detection/Diabetic-Retinopathy.ipynb)
 
-[See Project Report](https://lookupinthesky.github.io/Purdue-Simplilearn-AI-ML/DR-Report.html)
+[See Project Report](https://lookupinthesky.github.io/Purdue-Simplilearn-AI-ML/Diabetic-Retinopathy/Report.pdf)
 
 [See entire project on GitHub](https://github.com/lookupinthesky/Purdue-Simplilearn-AI-ML/tree/main/Diabetic%20Retinopathy%20Detection)
